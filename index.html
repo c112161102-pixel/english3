@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>馬卡龍單字記憶遊戲</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <h1>馬卡龍單字記憶遊戲</h1>
+  <p class="sub">聽發音，拼出單字、填上詞性，一次一顆甜點。</p>
+
+  <div class="grid">
+    <section class="panel play" aria-labelledby="ph">
+      <h2 id="ph">開始練習</h2>
+      <div class="stats">
+        <span class="pill">答對 <b id="sOk">0</b></span>
+        <span class="pill">答錯 <b id="sBad">0</b></span>
+        <span class="pill">連續答對 <b id="sStreak">0</b></span>
+      </div>
+
+      <div class="stage" id="stage">
+        <button class="mac" id="playBtn" aria-label="播放單字發音"><span class="top"></span><span class="fill">播放</span><span class="bot"></span></button>
+        <div class="hint" id="hint">先在右邊加入單字吧</div>
+      </div>
+
+      <div class="row">
+        <div>
+          <label for="spell">單字拼寫</label>
+          <input id="spell" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="聽完後輸入拼寫">
+        </div>
+        <div>
+          <label for="pos">詞性</label>
+          <input id="pos" list="poslist" autocomplete="off" autocapitalize="off" placeholder="如 n. / v.">
+          <datalist id="poslist"><option value="n."><option value="v."><option value="adj."><option value="adv."><option value="prep."><option value="conj."><option value="pron."></datalist>
+        </div>
+      </div>
+      <div class="btns">
+        <button class="btn" id="checkBtn">送出答案</button>
+        <button class="btn alt" id="slowBtn" aria-pressed="false">慢速：關</button>
+        <button class="btn alt" id="nextBtn">下一個</button>
+      </div>
+      <div class="feedback" id="fb" role="status" aria-live="polite"></div>
+    </section>
+
+    <section class="panel add" aria-labelledby="ah">
+      <h2 id="ah">我的單字本</h2>
+      <div class="row">
+        <div><label for="nw">單字</label><input id="nw" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="例如 ambitious"></div>
+        <div><label for="np">詞性</label><input id="np" list="poslist" autocomplete="off" autocapitalize="off" placeholder="例如 adj."></div>
+      </div>
+      <button class="btn" id="addBtn">加入單字</button>
+      <ul class="list" id="list"></ul>
+      <p class="small">單字會存在這個瀏覽器裡。詞性可輸入 n、n.、noun 皆視為相同。</p>
+    </section>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
